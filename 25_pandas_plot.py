@@ -17,6 +17,6 @@ data2.plot()
 plt.show()
 
 #在一张图中显示两个图像
-ab=data2.plot.scatter(x='A',y='B',color='pink',label='A&B')     #scatter为数据点
-data2.plot.scatter(x='A',y='C',color='yellow',label='A&C',ax=ab)
+b=data2.plot.scatter(x='A',y='B',color='pink',label='A&B')     #scatter为数据点画图
+data2.plot.scatter(x='A',y='C',color='yellow',label='A&C',ax=b) #ax属性，将b的数据也放在该图中
 plt.show()

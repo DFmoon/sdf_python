@@ -27,13 +27,17 @@ b.pack()
 
 #2*****************************************************************************************
 #输入框
-e=tk.Entry(win,show=None)       #show='*'时输入框作为密码框显示，show='1'时无论输入什么都显示1
+e=tk.Entry(win,show=1)       #show='*'时输入框作为密码框显示，show='1'时无论输入什么都显示1，但实际数据并没有改变
 e.pack()
+
+#文本框
+t=tk.Text(win,height=4,width=40)
+t.pack()
 
 #按钮
 def insert_point():             #获取entry中的值并将其插入光标所在位置
     var1=e.get()
-    t.insert('insert',var1)     #insert('1.2',var1)表示在第一行第二列插入
+    t.insert('insert',var1)     #insert(1.2,var1)表示在第一行第二列插入
 def insert_end():               #获取entry中的值并将其插入文本框尾部
     var2=e.get()
     t.insert('end',var2)
@@ -42,23 +46,19 @@ b1.pack()
 b2=tk.Button(win,text='insert end',width=10,height=1,command=insert_end)
 b2.pack()
 
-#文本框
-t=tk.Text(win,height=4,width=40)
-t.pack()
-
 #3*****************************************************************************************
-var4=tk.StringVar()
-var5=tk.StringVar()
+var4=tk.StringVar()     #定义标签中的变量
+var5=tk.StringVar()     #定义列表中的变量
 var5.set((11,22))
 
-#标签
+#标签，textvariable为动态文本，可以更新，和变量搭配使用
 l2=tk.Label(win,textvariable=var4,bg='blue',font=('Arial',12),width=15,height=1)
 l2.pack()
 
 #按钮
 def print_selection():               #在标签中显示选中的列表选项
     value=lb.get(lb.curselection())  #取出列表选中项
-    var4.set(value)
+    var4.set(value)                  #设置标签中的变量值
 b3=tk.Button(win,text='print selection',width=15,height=1,command=print_selection)
 b3.pack()
 
@@ -75,19 +75,19 @@ lb.pack()
 #4*****************************************************************************************
 var6=tk.StringVar()
 
-#标签
-l3=tk.Label(win,text='empty',bg='yellow',font=('Arial',12),width=15,height=1)
+#标签，text为静态文本，可通过config设置
+l3=tk.Label(win,text='empty',bg='yellow',font=('Arial',12),width=20,height=1)
 l3.pack()
 
 #按钮
 def print_selection():
     l3.config(text='you have selected'+var6.get())        #config可以改变控件的属性
 #单选按钮
-r1=tk.Radiobutton(win,text='Option A',variable=var6,value='A',command=print_selection)
+r1=tk.Radiobutton(win,text='Option A',variable=var6,value='A',command=print_selection)  #var6=A
 r1.pack()
-r2=tk.Radiobutton(win,text='Option B',variable=var6,value='B',command=print_selection)
+r2=tk.Radiobutton(win,text='Option B',variable=var6,value='B',command=print_selection)  #var6=B
 r2.pack()
-r3=tk.Radiobutton(win,text='Option C',variable=var6,value='C',command=print_selection)
+r3=tk.Radiobutton(win,text='Option C',variable=var6,value='C',command=print_selection)  #var6=C
 r3.pack()
 
 #5*****************************************************************************************
@@ -101,6 +101,7 @@ def print_number(v):
 s=tk.Scale(win,label='sdf',from_=0,to=100,orient=tk.HORIZONTAL,length=200,showvalue=0,resolution=1,
            tickinterval=20,command=print_number)    
 #showvalue=0表示是否在滑块上方显示对应的值，resolution=1表示保留几位小数,tickinterval=20表示隔多长显示一个刻度
+#滑块的command有默认的传入值，即滑块的值
 s.pack()
 
 #6*****************************************************************************************

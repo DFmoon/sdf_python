@@ -9,7 +9,7 @@ print('shape:',array.shape)             #行数和列数
 print('size:',array.size)               #元素个数
 
 #生成矩阵***************************************************************************************
-a1=np.zeros((3,4))     #生成全0矩阵
+a1=np.zeros((3,4))     #生成全0矩阵，注意双层括号
 print('a1:\n',a1)
 
 a2=np.ones((3,4))      #生成全1矩阵
@@ -18,13 +18,13 @@ print('a2:\n',a2)
 a3=np.empty((4,4))     #生成空矩阵，实际上生成的是数值很小的矩阵
 print('a3:\n',a3)
 
-a4=np.arange(10,20,2)  #生成有序数列
+a4=np.arange(10,20,2)  #生成有序数列，范围在10-20，步长为2
 print('a4:\n',a4)
 
 a5=np.arange(12).reshape((3,4))         #生成有序数列，reshape((3,4))指定行数和列数
 print('a5:\n',a5)
 
-a6=np.linspace(1,10,6).reshape((2,3))   #生成范围在1-10之间的6个数列，重定行数和列数
+a6=np.linspace(1,10,6).reshape((2,3))   #生成范围在1和10及其之间的6个数，重定行数和列数[[ 1.   2.8  4.6][ 6.4  8.2 10. ]]
 print('a6:\n',a6)
 
 a7=np.random.random((4,3))              #随机生成0-1的矩阵
@@ -72,9 +72,9 @@ print('a5中每行元素最小值是：',np.min(a5,axis=1))
 print('a5中每列元素最大值是：',np.max(a5,axis=0))
 print('a5中每行元素平均值是：',np.mean(a5,axis=1))
 #判断元素
-print('a5中非零元素是：\n',np.nonzero(a5))
+print('a5中非零元素是：\n',np.nonzero(a5)) #返回两个数组，第一个数组为非零元素的行，第二个数组为非零元素的列
 #排序
-print('a7逐行排序可得：\n',np.sort(a7))
+print('a7逐行排序可得：\n',np.sort(a7))    #每一行各自进行排序
 #矩阵转置
 print('a5的转置矩阵为：\n',np.transpose(a5))
 print('a5的转置矩阵为：\n',a5.T)
@@ -82,4 +82,4 @@ print('a5的转置矩阵为：\n',a5.T)
 print('a5中的最小值索引是：',np.argmin(a5))
 print('a5中的最大值索引是：',np.argmax(a5))
 #截断
-print('a5仅范围5-9截断可得：\n',np.clip(a5,5,9))
+print('a5仅范围5-9截断可得：\n',np.clip(a5,5,9))    #所有小于5的数都等于5，所有大于9的数都等于9

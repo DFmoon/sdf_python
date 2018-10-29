@@ -13,8 +13,8 @@ def job(v,n,l):
 def multicore():
     l=mp.Lock()
     v=mp.Value('i',0)          #定义共享数据
-    p1=mp.Process(target=job,args=(v,1,l))     #定义两个进程，使用共享数据,若没有lock，则两个进程会争夺共享数据
-    p2=mp.Process(target=job,args=(v,3,l))
+    p1=mp.Process(target=job,args=(v,1,l))    #每次加1 
+    p2=mp.Process(target=job,args=(v,3,l))    #每次加3
     p1.start()
     p2.start()
     p1.join()

@@ -35,7 +35,7 @@ runnian(2021)
 print('#全局变量')
 a=20
 def fun():
-    global a
+    global a    #在函数中声明使用这一全局变量，调用函数后的变化会反应在全局变量上
     a=40
     return a+100
 print(a)
@@ -113,14 +113,14 @@ print(a_dic)
 print('#zip/lambda/map')        #zip用于合并
 a=[2,7,9]
 b=[3,0,5]
-print(list(zip(a,b,b)))
+print(list(zip(a,b,b)))         #[(2, 3, 3), (7, 0, 0), (9, 5, 5)]
 for i,j in zip(a,b):
     print(i+j)
 
 func=lambda x,y:x*y             #lambda用于定义简单方程
 print(func(3,6))
 
-print(list(map(func,[1,8,0],[2,6,4])))  #结合zip和lambda
+print(list(map(func,[1,8,0],[2,6,4])))  #结合zip和lambda，[2, 48, 0]
 
 #深复制和浅复制
 print('#深复制和浅复制')
@@ -157,7 +157,7 @@ print('#set找不同')
 li=['a','d','t','r','a','g','a']
 print(li)
 li_set=set(li)
-print(li_set)
+print(li_set)       #{'a', 'g', 'd', 't', 'r'}
 
 sentence='welcome to my house'  #看成list,大小写敏感
 print(sentence)

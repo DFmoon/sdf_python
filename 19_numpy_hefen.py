@@ -44,7 +44,7 @@ b=a2            #浅复制，相互关联
 b[2,3]=56
 print(a2)
 
-c=a2.copy()     #深复制，只复制值，没有关联
+c=a2.copy()     #深复制，只复制值，没有关联,numpy中的深复制，和copy中的copy和deepcopy不同
 c[2,3]=30
 print(a2)
 print(c)

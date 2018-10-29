@@ -10,9 +10,9 @@ print(df1)
 
 #丢掉缺失数据
 print(df1.dropna(axis=0,how='any'))     #丢掉含有nan的任何一行
-print(df1.dropna(axis=0,how='all'))     #丢掉含有全部为nan的行
+print(df1.dropna(axis=0,how='all'))     #丢掉全部为nan的行
 print(df1.dropna(axis=1,how='any'))     #丢掉含有nan的任何一列
-print(df1.dropna(axis=1,how='all'))     #丢掉含有全部为nan的列
+print(df1.dropna(axis=1,how='all'))     #丢掉全部为nan的列
 
 #填充缺失数据
 print(df1.fillna(value=0))              #缺失补0

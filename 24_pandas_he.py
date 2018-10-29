@@ -20,7 +20,7 @@ print(res2)
 res3=pd.concat([df3,df4],join='inner',ignore_index=True)    #裁剪合并
 print(res3)
 
-res4=pd.concat([df3,df4],axis=1,join_axes=[df3.index])      #按照df3的索引进行合并
+res4=pd.concat([df3,df4],axis=1,join_axes=[df3.index])      #按照df3的索引进行左右合并
 print(res4)
 
 res5=df1.append(df2,ignore_index=True)                      #追加数据至末尾
@@ -32,6 +32,8 @@ s1=pd.Series([1,2,3,4],index=['a','b','c','d'])             #追加单行数据
 res7=df1.append(s1,ignore_index=True)
 print(res7)
 print('\n\n')
+
+#append:DataFrame、Series
 
 #merge*****************************************************************************
 left=pd.DataFrame({'key':['k0','k1','k2','k3'],
@@ -50,7 +52,7 @@ print(right)
 res8=pd.merge(left,right,on='key')      #基于key进行合并
 print(res8)
 
-res9=pd.merge(left,right,on=['key1','key2'],how='inner')    #只考虑两项中相同的key1、key2截断合并
+res9=pd.merge(left,right,on=['key1','key2'],how='inner')    #只考虑两项中相同的key1、key2截断合并,默认
 print(res9)
 res10=pd.merge(left,right,on=['key1','key2'],how='outer')   #只考虑两项中相同的key1、key2填补nan合并
 print(res10)
