@@ -21,10 +21,10 @@ print('a3:\n',a3)
 a4=np.arange(10,20,2)  #生成有序数列，范围在10-20，步长为2
 print('a4:\n',a4)
 
-a5=np.arange(12).reshape((3,4))         #生成有序数列，reshape((3,4))指定行数和列数
+a5=np.arange(12).reshape(3,4)         #生成有序数列，reshape((3,4))指定行数和列数
 print('a5:\n',a5)
 
-a6=np.linspace(1,10,6).reshape((2,3))   #生成范围在1和10及其之间的6个数，重定行数和列数[[ 1.   2.8  4.6][ 6.4  8.2 10. ]]
+a6=np.linspace(1,10,6).reshape(2,3)   #生成范围在1和10及其之间的6个数，重定行数和列数[[ 1.   2.8  4.6][ 6.4  8.2 10. ]]
 print('a6:\n',a6)
 
 a7=np.random.random((4,3))              #随机生成0-1的矩阵
